@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            border: 1px solid rgb(123, 0, 255);
+        }
+        @media screen and (max-width:700px){
+            div{
+            border-color: rgb(201, 201, 110);
+            }
+        }
+        @media screen and (min-width:700px) and (max-width:900px){
+            div:nth-child(2),
+            div:nth-child(3){
+                width: 49.5%;
+                display: inline-block;
+            }
+        }
+        @media screen and (min-width:900px) and (max-width:1200px){
+            div:nth-child(1),
+            div:nth-child(2){
+                width: 49.5%;
+                display: inline-block;
+            }
+        }
+        @media screen and (min-width:1200px){
+            div{
+                width: 32%;
+                display: inline-block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        const dynamicStyles=(clr0,clr1,clr2)=>{
+            document.getElementsByTagName("div")[0].style.borderColor=clr0;
+            document.getElementsByTagName("div")[1].style.borderColor=clr1;
+            document.getElementsByTagName("div")[2].style.borderColor=clr2;
+
+        }
+        let clr0=prompt("Enter border color for first box");
+        let clr1=prompt("Enter border color for second box");
+        let clr2=prompt("Enter border color for third box");
+        dynamicStyles(clr0,clr1,clr2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    body{
+        margin: 0px !important;
+    }
+    .main_outer{
+        
+    }
+    .main_inner{
+        background-color: rgba(53,53,53,255);
+        color:white;
+    }
+    header{
+        overflow: hidden;
+    }
+    header>div{
+        float: right;
+        padding: 0 1rem;
+    }
+    header>div>ul{
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+    }
+    header>div>ul>li{
+        font: 400;
+        font-size: 1.5rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header>div>ul>li>img{
+        width: 25px;
+        height: 25px;
+        background-size: cover;
+    }
+    .main{
+        padding: 10rem 0 5rem 0 ;
+        margin: 0px auto;
+        width: max-content;
+    }
+    .logo{
+        margin: 0px auto;
+        width: max-content;
+    }
+    .input{
+        border: none;
+        background-color: white;
+        margin: 1.9rem 0;
+        border-radius: 1.5rem;
+
+    }
+    .input>input[type=text]{
+        border: none;
+        outline: none;
+        padding: 0.4rem;
+        margin: 0.3rem;
+        width: 200px;
+        background-color: white;
+        color:black;
+    }
+    .input>img{
+        width: 0.9rem;
+        height: 0.7rem;
+        padding: 0 3px ;
+        margin: 0 0.5rem ;
+    }
+    .icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 2rem;
+        width: 300px;
+        flex-wrap: wrap;
+        margin: 0px auto;
+        padding: 1rem 0;
+    }
+    .i2{
+        width: 50px;
+    }
+    .i2>img{
+        background-color: rgba(42,42,42,255);
+        padding:0.5rem ;
+        border-radius:50% ;
+        width: 30px;
+        height: 30px;
+    }
+    .i2>div{
+        padding: 0.5rem 0.1rem ;
+        font-size: 0.7rem;
+        font-weight: 500;
+        font-family:Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+    .cc{
+        overflow: hidden;
+        padding: 1.5rem  1rem 2rem  0;
+    }
+    .cc>button{
+        float: right;
+        border: none;
+        border-radius: 1rem;
+        padding: 0.5rem 0.8rem;
+        background-color: rgba(42,42,42,255);
+        color: rgba(141,147,152,255);
+        font-size: small;
+    }
+    
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(53,53,53,255);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+.main_inner{
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+.sr{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 5rem 2rem;
+}
+.square{
+    border-radius: 1rem;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(30, 9, 9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rounded{
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border: none;
+}
+.sr>:nth-child(1)>:first-child{
+    background-color: green;
+}
+.sr>:nth-child(2)>:first-child{
+    background-color: red;
+}
+.sr>:nth-child(3)>:first-child{
+    background-color: yellow;
+}
+.sr>:nth-child(4)>:first-child{
+    background-color: blue;
+}
+.sr>:nth-child(5)>:first-child{
+    background-color: violet;
+}
+.sr>:nth-child(6)>:first-child{
+    background-color: pink;
+}
+.sr>:nth-child(7)>:first-child{
+    background-color: blanchedalmond;
+}
+.sr>:nth-child(8)>:first-child{
+    background-color: gray;
+}
+.sr>:nth-child(9)>:first-child{
+    background-color: orange;
+}
+.sr>:nth-child(10)>:first-child{
+    background-color: rgb(100, 85, 58);
+}
+.sr>:nth-child(11)>:first-child{
+    background-color: rgb(18, 105, 159);
+}
+.sr>:nth-child(12)>:first-child{
+    background-color: rgb(220, 246, 74);
+}
+.sr>:nth-child(13)>:first-child{
+    background-color: rgb(165, 160, 236);
+}
+.sr>:nth-child(14)>:first-child{
+    background-color: rgb(198, 143, 123);
+}
+.sr>:nth-child(15)>:first-child{
+    background-color: rgb(43, 11, 34);
+}
+ul>li>label>input[type=checkbox]::after{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    content: "";
+    position: relative;
+    left:-4 ;
+    top: -2;
+}
+#ld{
+    width: 2rem;
+    height: 2rem;
+    background-color: #5b8935;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    top: 2;
+}
+</style>
+<div class="main_outer">
+    <div class="main_inner" id="mn">
+        <header>
+            <div>
+                <ul>
+                    <li>Gmail</li>
+                    <li>Images</li>
+                    <li><img src="../sl-removebg-preview.png"></li>
+                    <li><img src="../profile-removebg-preview.png" alt=""></li>
+                    <li><button id="dl"></button></li>
+                </ul>
+            </div>
+        </header>
+        <div class="main">
+        <div class="logo">
+            <img src="../google_logo.svg" alt="">
+        </div>
+        <div class="input">
+            <img src="../search-removebg-preview.png"alt="">
+            <input type="text" placeholder="Search Google or type a URL">
+            <img src="voice2-removebg-preview.png" alt="">
+            <img src="../lens-removebg-preview (1).png" alt="">
+        </div>
+        <div class="icons">
+            <div class="i2"><img src="../git-removebg-preview.png" alt="yt"><div>Git</div></div>
+            <div class="i2"><img src="../yt2-removebg-preview.png" alt="yt"><div>YouTube</div></div>
+            <div class="i2"><img src="../insta.webp" alt="yt"><div>Instagram</div></div>
+            <div class="i2"><img src="../chat-removebg-preview.png" alt="yt"><div>ChatGpt</div></div>
+            <div class="i2"><img src="../codepen.png" alt="yt"><div>CodePen</div></div>
+            <div class="i2"><img src="../meet1-removebg-preview.png" alt="yt"><div>Meet</div></div>
+            <div class="i2"><img src="../fb.png" alt="yt"><div>FaceBook</div></div>
+            <div class="i2"><img src="../plus2.png" alt="yt"><div>shortcut</div></div>
+        </div>
+    </div>
+    <div class="cc">
+        <button class="openbtn" onclick="openNav()">Customize Chrome</button>
+    </div>
+    </div>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="sr">
+            <div class="square">
+                <button class="rounded" id="r1" onclick="changeTheme1('orange')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r2" onclick="changeTheme1('#5b8935')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r3" onclick="changeTheme1('#32a7e1')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r4" onclick="changeTheme1('#3d3d14')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r5" onclick="changeTheme1('#1ceb38')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r6" onclick="changeTheme1('#1ceb38')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r7" onclick="changeTheme1('#e09721')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r8" onclick="changeTheme1('#e0e021')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r9" onclick="changeTheme1('indigo')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r10" onclick="changeTheme1('green')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r11" onclick="changeTheme1('blue')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r12" onclick="changeTheme1('gray')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r13" onclick="changeTheme1('pink')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r14" onclick="changeTheme1('violet')"></button>
+            </div>
+            <div class="square">
+                <button class="rounded" id="r15" onclick="changeTheme1('#ffffff')"></button>
+            </div>
+        </div>
+      </div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+  function changeTheme1(bc){
+    document.getElementById('mn').style.background=bc;
+    document.getElementById('mn').style.color="white";
+  }
+  function lightDark(){
+    let input=document.body.style.backgroundColor;
+    console.log(input);
+    // if(document.body.style.backgroundColor==='#ffffff'){
+        
+    //     console.log("white");
+    // }
+    // else{
+    //     console.log("black");
+    // }
+  }
+
+//   const lightDarkTheme=()=>{
+    
+//     // let check=document.querySelector("input[type=checkbox]");
+//     // check.addEventListener('change',function(){
+//     //     if(this.checked){
+//     //         console.log("checked");
+//     //     }
+//     //     else{
+//     //         console.log("not checked");
+//     //     }
+//     // });
+//     // console.log(check);
+//     let check=document.querySelector("#add");
+//     check.addEventListener("click",()=>{
+//         console.log("arrow Function works");
+//     });
+// }
+    // eventListner.addEventListener("click",darkTheme=()=>{
+    //     document.querySelector(".main_inner").style.background="black";
+    //     document.querySelector(".main_inner").style.color="white";
+    //    eventListner.style.background="white";
+        
+    // });
+
+</script>

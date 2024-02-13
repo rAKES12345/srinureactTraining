@@ -1,0 +1,66 @@
+<html>
+<style>
+    .preview{
+        width: 500px;
+        height: 400px;
+        margin: 0px auto;
+    }
+    .preview>img{
+        width: 300px;
+        height: 300px;
+        position: relative;
+        top: 50;
+        left: 100;
+    }
+    .gallery{
+        width: 500px;
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+        align-content: center;
+        margin: 10px auto;
+    }
+    .gallery>img{
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<body>
+<div class="main_outer">
+    <div class="main_inner">
+        <div class="preview">
+            <img src="../html.png" alt="" id="output">
+        </div>
+        <div class="gallery">
+            <img src="../html.png" alt="" id="img1" onclick="g1()">
+            <img src="../css.png" alt="" id="img2" onclick="g2()">
+            <img src="../js.png" alt="" id="img3" onclick="g3()">
+            <img src="../bootstrap.jpg" alt="" id="img4" onclick="g4()">
+            <img src="../react.png" alt="" id="img5" onclick="g5()">
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function g1(){
+       let o2=document.getElementById('output');
+       o2.src='../html.png';
+    }
+    function g2(){
+       let o2=document.getElementById('output');
+       o2.src='../css.png';
+    }
+    function g3(){
+       let o2=document.getElementById('output');
+       o2.src='../js.png';
+    }
+    function g4(){
+       let o2=document.getElementById('output');
+       o2.src='../bootstrap.jpg';
+    }
+    function g5(){
+       let o2=document.getElementById('output');
+       o2.src='../react.png';
+    }
+</script>
+</html>

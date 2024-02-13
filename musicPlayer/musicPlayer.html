@@ -1,0 +1,84 @@
+<style>
+    body{
+        margin: 0px !important;
+    }
+    .main_outer{
+        margin: 0px auto;
+        padding: 4rem;
+        max-width: 900px;
+        color: white;
+        font-weight: 400;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-color: rgba(0,0,0,255);
+    }
+    .main_inner{
+        padding: 2rem 0;
+    }
+    .first{
+        overflow: hidden;
+    }
+    .sub1{
+        float: left;
+    }
+    .sub1>img{
+        width: 120px;
+        height: 120px;
+        border-radius: 1.7rem;
+    }
+    .sub2{
+        float: left;
+        margin: 0 0 1rem 1.8rem;
+    }
+    .sub2>div:last-child{
+        color: rgb(147, 148, 150);
+    }
+    .second{
+        overflow: hidden;
+    }
+    .second>div:nth-child(1){
+        float: left;
+    }
+    .second>div:nth-child(1)>img{
+        width: 40px;
+        height: 40px;
+        border-radius: 0.7rem;
+    }
+    .second>div:nth-child(2){
+        float: left;
+    }
+    .second>div:nth-child(2)>div:nth-child(2){
+        color:rgb(147, 148, 150);
+    }
+    .second>div:nth-child(3){
+        float: right;
+    }
+    audio::-webkit-media-controls-panel {
+        background-color: black;
+    }
+</style>
+<div class="main_outer">
+    <div class="main_inner">
+        <div class="first">
+            <div class="sub1">
+                <img src="../../chat.png" alt="">
+            </div>
+            <div class="sub2">
+                <div>Song Name</div>
+                <div>Author</div>
+                <div>
+                    <audio controls autoplay>
+                        <source src="../musicPlayer/[iSongs.info] 11 - Ranvijays Entry Medley.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div class="second">
+            <div><img src="../../chat-removebg-preview.png" alt=""></div>
+            <div>
+            <div>Song Name</div>
+            <div>Author</div>
+            </div>
+            <div>Time</div>
+        </div>
+    </div>
+</div>
