@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+        .main_outer{
+            display: grid;
+            place-items: center;
+            margin: 7rem 0 0 0;
+        }
+        .main_inner{
+            border:1px solid white;
+            padding: 0.5rem;
+            background-color: rgba(236,236,236,255);
+            color: black;
+            border-radius: 0.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem  0 ;
+        }
+        .main_inner>div:first-child{
+            background-color: #a2362b;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-radius: 0.3rem;
+            padding: 0.5rem 3rem;
+            letter-spacing: 0.1rem;
+            word-spacing: 0.2rem;
+        }
+        .main_inner>div:nth-child(2){
+            font-weight: 400;
+            font-size: 1rem;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        input[type=text]{
+            border:0.1rem solid blue ;
+            height: 1.5rem;
+            border-radius: 0.5rem;
+            outline: none;
+            
+        }
+        input[type=button]{
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            border-color: antiquewhite;
+            outline: none;
+        }
+    </style>
+    <div class="main_outer">
+        <div class="main_inner">
+        <div>Prime Number Calculator</div>
+        <div>Is this Number Prime or Composite?</div>
+        <input type="text">
+        <div><input type="button" value="Check Prime" onclick="outputFun()"></div>
+        <p>Result:<span></span></p>
+    </div>
+    </div>
+    <script>
+        function outputFun(){
+        let input=document.querySelector("body > div.main_outer > div > input[type=text]");
+        let inputNum=parseInt(input.value);
+        let output=document.querySelector("body > div.main_outer > div > p > span");
+        function isPrime(){
+            if(inputNum<=1){
+                return false;
+            }if(inputNum<=3){
+                return true;
+            }if(inputNum%2===0||inputNum%3===0){
+                return false;
+            }
+            let i=5;
+            while(i*i<=inputNum){
+                if(inputNum%i===0||inputNum%(i+2)===0){
+                    return false;
+                }
+                i+=6;
+            }
+            return true;
+        }
+        if(isPrime(inputNum)){
+            output.innerText="Prime";
+            output.style.color="green";
+        }else{
+            output.innerText="Not a Prime!";
+            output.style.color="red";
+        }
+        input.value="";
+    }
+        
+    </script>
+</body>
+</html>
