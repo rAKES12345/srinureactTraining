@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style> 
+    body{
+        margin: 0;
+    }
+    .main_outer{
+        display: grid;
+        place-items: center;
+        padding: 4rem 0 0 0;
+    }
+    .main_inner{
+        width: 500px;
+        height: 350px;
+        border: 1px solid red;
+        position: relative;
+        margin: 0 0 3rem 0;
+    }
+    .main_inner>div:nth-child(1){
+        width: 90px;
+        height: 1.5px;
+        background-color: blue;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .main_inner>input[type=button]:nth-child(2){
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        position: absolute;
+        top: 80px;
+        left: 320px;
+    }
+    .main_inner>input[type=button]:nth-child(3){
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        border: 1px solid black;
+        position: absolute;
+        top: 160px;
+        left: 350px;
+    }
+    .main_inner>input[type=button]:nth-child(4){
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        position: absolute;
+        top: 280px;
+        left: 330px;
+    }
+    body > div.main_outer > div.main_inner > input[type=button]:focus{
+        outline: none;
+        border:5px solid  yellow;
+        background-color: red;
+    }
+    .main_inner~div{
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 5px 0 0 0;
+    }
+    .main_inner~div>span{
+        color: blue;
+        margin: 0 0.5rem;
+    }
+    .won{
+        display: grid;
+        place-items: center;
+        font-size: 3rem;
+        color: green;
+        font-weight: 500;
+    }
+    .restart{
+        margin: 0.5rem 0;
+        padding: 0.5rem 0.7rem;
+        background-color: red;
+        border: none;
+        border-radius: 0.5rem;
+        color: white;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    </style>
+    <div class="main_outer">
+        <h2>Shoot the balloons</h2>
+        <div class="main_inner">
+            <div></div>
+            <input type="button" onclick="fn(bt1,bl1,b1); event2();" >
+            <input type="button" onclick="fn(bt2,bl2,b2); event2();">
+            <input type="button" onclick="fn(bt3,bl3,b3); event2();">
+        </div>
+        <div>Your score:<span>0</span></div>
+        <div>Chances left:<span>3</span></div>
+    </div>
+    <script>
+        let bt1="105px";
+        let bl1="230px";
+        let bt2="195px";
+        let bl2="260px";
+        let bt3="305px";
+        let bl3="240px";
+        let inputRef1=document.querySelector("body > div > div:nth-child(3) > span");
+        let inputRef2=document.querySelector("body > div.main_outer > div:nth-child(4) > span");
+        let b1=document.querySelector("body > div.main_outer > div.main_inner > input[type=button]:nth-child(2)");
+        let b2=document.querySelector("body > div.main_outer > div.main_inner > input[type=button]:nth-child(3)");
+        let b3=document.querySelector("body > div.main_outer > div.main_inner > input[type=button]:nth-child(4)");
+        
+        function fn(a,b,c){
+            let arrow=document.querySelector(".main_inner>div:first-child");
+            arrow.style.top=a;
+            arrow.style.left=b;
+            c.disabled=true;
+            arrow.style.backgroundColor="red";
+        }
+        let score=0;
+        let chances=3;
+        function event2(){
+            let btnParent=document.querySelector(".main_inner");
+            score+=1;
+            chances-=1;
+            inputRef1.innerText=score;
+            inputRef2.innerText=chances;
+            if(score==3&&chances==0){
+                document.querySelector("body > div.main_outer > h2").innerText="";
+                btnParent.innerText="You Won The Game!";
+                btnParent.setAttribute("class","won");
+                btn=document.createElement("button");
+                btn.innerText="Restart";
+                btn.setAttribute("class","restart");
+                btnParent.appendChild(btn);
+                btn.addEventListener('click', function() {
+                    location.reload();
+                });
+            }
+        }
+    </script>
+</body>
+</html>
