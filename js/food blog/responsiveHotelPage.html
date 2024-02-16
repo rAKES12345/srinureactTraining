@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Blog</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+        .main_outer{
+             max-width: 1200px;
+            margin: 0px auto;
+            position: relative;
+        }
+        header{
+            display: flex;
+            flex: 2 1 auto;
+            max-width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            font-size: 1.5rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            position: sticky;
+            top: 0;
+            background-color: white;
+        }
+        header>.main_head{
+            font-weight: 500;
+        }
+        header>.menu_icon{
+            display: flex;
+            gap: 4px;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        header>.menu_icon>div{
+            width: 1.2rem;
+            height: 2px;
+            background-color:black ;
+        }
+        header>.contact>a{
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.3rem;
+        }
+        header>.dynamic_menu{
+            width: 500px;
+            height: 100vh;
+            display: none;
+        }
+        .el_style{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: rgb(248, 241, 241);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 0;
+        }
+        .el1{
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: black;
+            padding: 1rem 2rem;
+            border: none;
+        }
+        .el1:hover{
+            background-color: antiquewhite;
+        }
+        main{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1.5rem 1.5rem;
+            margin: 2rem 0 0 0;
+        }
+        .card1{
+            flex-basis: 20%;
+        }
+        .card1>img{
+            width: 250px;
+            height: 300px;
+        }
+        .card1 > div:nth-child(2){
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin: 0.7rem 0;
+        }
+        .card1>div:nth-child(3){
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-align: center;
+        }
+        .navigator{
+            width: max-content;
+            margin: 0px auto;
+            padding: 3rem;
+        }
+        .navigator>button{
+            border: none;
+            background-color: white;
+            font-size: 1rem;
+            padding:0.5rem 1rem ;
+            cursor: pointer;
+        }
+        .navigator>button:nth-child(2){
+            background-color: black;
+            color: white;
+        }
+        .navigator>button:nth-child(2):hover{
+            background-color: rgb(222, 214, 214);
+            color: black;
+        }
+        .navigator>button:hover{
+            background-color: black;
+            color: white;
+        }
+        .cook{
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .cook>div{
+            margin: 1rem 0;
+        }
+        .cook>div:first-child{
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-family:'Times New Roman', Times, serif;
+            padding: 0 0 1rem 0 ;
+        }
+        .cook > div:nth-child(3){
+            font-size: 1.4rem;
+            font-weight: 500;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 0.3rem 0;
+        }
+        .cook>div:nth-child(4){
+            font-size: 1em;
+            font-weight: 400;
+            font-style: italic;
+        }
+        .cook>div:nth-child(5){
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0 0 2.5rem 0;
+        }
+        footer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding:3rem  0 ;
+            gap: 0 2rem;
+        }
+        .col-1{
+            width: 400px;
+        }
+        .col-2{
+            width: 400px;
+            margin: 0 3rem;
+        }
+        .col-1>div:nth-child(1),.col-2>div:nth-child(1),.col-3>div:nth-child(1){
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            margin: 0 0 1rem  0;
+        }
+        .col-1>div:nth-child(2){
+            margin: 0 0 1rem 0;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .col-1>div:nth-child(3)>span{
+            text-decoration: underline;
+        }
+        .col-2>div:nth-child(2),.col-2>div:nth-child(4){
+            display: flex;
+            gap: 0 1.5rem;
+            padding: 1rem;
+        }
+    
+        .col-2>div:nth-child(2)>img+div>div:nth-child(1),div:nth-child(4)>img+div>div:nth-child(1){
+            font-size: 1.2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0.5rem 0;
+        }
+        .col-2>div:nth-child(2)>img,.col-2 > div:nth-child(4) > img{
+            width: 4rem;
+        }
+        .col-2>div:nth-child(2):hover,.col-2>div:nth-child(4):hover{
+            background-color: antiquewhite;
+        }
+        .col-3>div:nth-child(2){
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            width: 400px;
+        }
+        .col-3>div:nth-child(2)>span{
+            background-color: rgb(106, 103, 101);
+            color: white;
+            padding: 0.1rem 0.3rem;
+        }
+        .col-3>div:nth-child(2)>span:nth-child(1){
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <div class="main_outer">
+        <header>
+            <div class="menu_icon" onclick="openMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="main_head">My Food</div>
+            <div class="contact"><a href="">Contact</a></div>
+        </header>
+        <main>
+            <div class="card1">
+                <img src="../food blog/f1.jpg" alt="f1">
+                <div>The Perfect Sandwich, </div>
+                <div>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</div>
+            </div>
+            <div class="card1">
+                <img src="../food blog/f2.jpg" alt="f2">
+                <div>Let Me Tell You About </div>
+                <div>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt .</div>
+            </div>
+            <div class="card1">
+                <img src="../food blog/f3.jpg" alt="f2">
+                <div>Cherries, interrupted</div>
+                <div>Lorem ipsum text praesent tincidunt ipsum lipsum.What else?</div>
+            </div><div class="card1">
+                <img src="../food blog/f4.jpg" alt="f1">
+                <div>Once Again, Robust Wine </div>
+                <div>Lorem ipsum text praesent tincidunt ipsum lipsum.</div>
+            </div><div class="card1">
+                <img src="../food blog/f5.jpg" alt="f1">
+                <div>All I Need Is a Popsicle</div>
+                <div>Lorem ipsum text praesent tincidunt ipsum lipsum.</div>
+            </div><div class="card1">
+                <img src="../food blog/f6.jpg" alt="f1">
+                <div>Salmon For Your Skin</div>
+                <div>Once again, some random text to ipsum text praesent tincidunt.</div>
+            </div><div class="card1">
+                <img src="../food blog/f7.jpg" alt="f1">
+                <div>The Perfect Sandwich, </div>
+                <div>Just some random text, lorem ipsum text praesent tincidunt.</div>
+            </div><div class="card1">
+                <img src="../food blog/f8.jpg" alt="f1">
+                <div>Le French</div>
+                <div>Lorem lorem lorem lorem ipsum text praesent tincidunt.</div>
+           
+        </main>
+        <div class="navigator">
+        <button><<</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>>></button>
+        </div>
+        <hr>
+        <div class="cook">
+            <div>About Me, The Food Man</div>
+            <img src="../food blog/f9.jpg" alt="">
+            <div>I am Who I Am!</div>
+            <div>With Passion For Real, Good Food</div>
+            <div>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</div>
+        </div>
+        <hr>
+        <footer>
+            <div class="col-1">
+                <div>FOOTER</div>
+                <div>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</div>
+                <div>Powered by <span>rakesh</span></div>
+            </div>
+            <div class="col-2">
+                    <div>BLOG POSTS</div>
+                    <div>
+                    <img src="../food blog/f10.jpg" alt="">
+                    <div>
+                        <div>Lorem</div>
+                        <div>Sed mattis nunc</div>
+                    </div>
+                    </div>
+                    <hr>
+                    <div>
+                    <img src="../food blog/f11.jpg" alt="">
+                    <div>
+                        <div>Ipsum</div>
+                        <div>Praes tinci sed</div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div>POPULAR TAGS</div>
+                    <div>
+                        <span>Travel</span>
+                        <span>New York</span>
+                        <span>Dinner</span>
+                        <span>Salmon</span>
+                        <span>France</span>
+                        <span>Drinks</span>
+                        <span>Ideas</span>
+                        <span>Flavors</span>
+                        <span>Cuisine</span>
+                        <span>Chicken</span>
+                        <span>Dressing</span>
+                        <span>Fried</span>
+                        <span>Fish</span>
+                        <span>Duck</span>
+                    </div>
+                </div>
+        </footer>
+    </div>
+    <script>
+        function openMenu(){
+            let el=document.createElement("div");
+            let parent=document.querySelector(".main_outer");
+            document.body.appendChild(el);
+            el.setAttribute("class","el_style");
+            let el1=document.createElement("button");            
+            let el2=document.createElement("button");            
+            let el3=document.createElement("button");  
+            el1.innerText="close Menu"          
+            el2.innerText="Food";
+            el3.innerText="About";
+            el.appendChild(el1);
+            el.appendChild(el2);
+            el.appendChild(el3);
+            el1.setAttribute("class","el1");
+            el2.classList.add("el1:hover");
+            el2.setAttribute("class","el1");
+            el3.classList.add("el1:hover");
+            el3.setAttribute("class","el1");
+            el3.classList.add("el1:hover");
+            el1.addEventListener("click",()=>{
+                el.removeAttribute("class");
+            })
+        }
+    </script>
+</body>
+</html>
