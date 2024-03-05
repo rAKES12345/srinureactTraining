@@ -1,0 +1,232 @@
+* {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(128, 128, 248);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+}
+.header > div:nth-child(1) {
+  font-size: 1.2em;
+}
+.header > div:nth-child(2) {
+  font-size: 1.5em;
+}
+.header > div:nth-child(3) > span {
+  margin: 0 1rem;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.modal {
+  max-width: 500px;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+}
+.modal-dialog {
+  width: auto !important;
+}
+.modal-header,
+.modal-footer {
+  border: none !important;
+}
+.modal-header {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bolder;
+}
+.modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+@media screen and (max-width=440px) {
+  .modal-body > div > input {
+    max-width: 90px !important;
+  }
+  .modal-footer > input {
+    font-size: 8px !important;
+  }
+}
+
+.modal-body > div > input {
+  all: unset;
+  padding: 0 0 0.7rem 0;
+  border-bottom: 1px solid red;
+}
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0 1rem;
+}
+.modal-footer > input {
+  all: unset;
+  background-color: blue;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+}
+#b4 {
+  text-align: center;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+.success {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding: 2rem 0;
+}
+.success > button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.tick {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 0.4rem solid green;
+  position: relative;
+  margin: 0 0 2rem 0;
+}
+.tick > div:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.tick > div:nth-child(1) > div:nth-child(1) {
+  width: 5.5rem;
+  height: 2.7rem;
+  border: 0.4rem solid green;
+  border-top: none;
+  border-right: none;
+  transform: rotate(315deg);
+}
+.unsuccess {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding: 2rem 0;
+}
+.unsuccess > button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.xmark {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 0.4rem solid green;
+  position: relative;
+  margin: 0 0 2rem 0;
+}
+.xmark > div:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.xmark > div:nth-child(1) > div:nth-child(1) {
+  width: 6.5rem;
+  height: 0.1rem;
+  border: 0.4rem solid green;
+  position: relative;
+  top: 5px;
+  left: 0px;
+  transform: rotate(135deg);
+}
+.xmark > div:nth-child(1) > div:nth-child(2) {
+  width: 6.5rem;
+  height: 0.1rem;
+  border: 0.4rem solid green;
+  position: relative;
+  top: -3px;
+  left: 0px;
+  transform: rotate(225deg);
+}
+#profile {
+  display: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 440px) {
+  .modal-body > div > input {
+    max-width: 90px !important;
+  }
+  .modal-footer > input {
+    font-size: 8px !important;
+  }
+}
+
+.menu-toggle {
+  cursor: pointer;
+  margin: 0 0 0 2rem;
+  font-size: 1.5em !important;
+}
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.overlay>div:hover{
+  color: black;
+  background-color: whitesmoke;
+  box-shadow: 0 10px 10px gray;
+}
+.overlay span {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.overlay span:hover, .overlay span:focus {
+  color: #f1f1f1;
+}
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}

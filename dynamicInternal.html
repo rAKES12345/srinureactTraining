@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #heading{
+            font-size: 1.5rem;
+            font-weight: 500;
+            position: absolute;
+            top: 10px;
+        }
+        ul>li{
+            list-style: none;
+        }
+        .ds{
+            @media screen and (max-width:700px){
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: start;
+                justify-content: center; 
+                width: 20%;  
+                padding: 4rem 0.5rem;
+            }
+        }
+        .ds2{
+            @media screen and (max-width:700px){
+            width: 80% !important;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            }
+        }
+        @media screen and (max-width:700px){
+            .main_outer>div:last-child{
+                width: 100%;
+                margin: 4rem 0 ;
+            }
+            div>ul{
+                display: none;
+            }  
+            #open{
+                position: absolute;
+                top: 14px;
+                right: 15px;
+            }
+
+        }
+        @media screen and (min-width:700px){
+            div>ul{
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+                justify-content: end;
+                padding: 0 1rem ;
+            }
+            #open{
+                display: none;
+            }
+        }
+        form{
+            width: max-content;
+            background-color: whitesmoke;
+            border-radius: 1rem;
+            margin: 0px auto;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.2rem;
+        }
+        form>label{
+            
+        }
+    </style>
+    <div class="main_outer">
+    <div>
+        <div id="heading">Dynamic Js Styling</div>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Help</li>
+            <li>Login</li>
+        </ul>
+        <button id="open">=</button>
+    </div>
+    <div>
+       <form action="">
+        <input type="mail" placeholder="Email" id="email">
+        <input type="password"  placeholder="Password" id="password">
+        <input type="submit">
+        <p></p>
+       </form>
+    </div>
+</div>
+    <script>
+        let btn=document.querySelector("button");
+        let hm=document.querySelector(".main_outer>div>ul");
+        let hm2=document.querySelector(".main_outer>div:last-child");
+        open=()=>{
+            hm.classList.add("ds"); 
+            hm2.classList.add("ds2");
+            btn.innerText="X";
+            btn.removeEventListener("click",open);
+            btn.addEventListener("click",close);
+        }
+        close=()=>{
+            hm.classList.remove("ds");
+            hm2.classList.remove("ds2");
+            btn.innerText="=";
+            btn.addEventListener("click",open);
+            btn.removeEventListener("click",close);
+        }
+        btn.addEventListener("click",open());
+        let submitBtn=document.querySelector("input[type=submit]");
+        let formData={};
+        submitBtn.addEventListener("click",submitFun);
+        function submitFun(){
+            event.defaultPrevented;
+            let input1=document.getElementById("email").value;
+            let input2=document.getElementById("password").value;
+            formData={
+                email:input1,
+                password:input2,
+            };
+            if(formData.email==="r@1"&&formData.password==="r1"){
+                alert("welcome");
+            }else{
+                alert("Invalid credentials");
+            }
+        }
+    </script>
+</body>
+</html>

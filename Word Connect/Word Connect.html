@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Connect</title>
+</head>
+<body>
+<style>
+*{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+    }
+.main_outer{
+    width: 700px;
+    height: 100vh;
+    margin: 0px auto;
+    display: grid;
+    place-items: center;
+}
+.main_inner{
+    width: 100%;
+    background-color: #065d82;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #039cd7;
+    color: white;
+    height: 3rem;
+}
+header>input[type=button]{
+    background-color:#bc285a ;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 500;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0.5rem 0.7rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    cursor: pointer;
+    margin: 0 0 0 0.4rem;
+}
+header>div:nth-child(2){
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: bold;
+}
+header>div:nth-child(2)>span{
+    color:#CCFFFF ;
+}
+header>div:nth-child(3){
+    background-color: #ffc11e;
+    color: black;
+    font-size: 1.2em;
+    font-weight:bold;
+    padding: 0.8rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+header>div:nth-child(3)>span{
+    margin: 0 0 0 0.5rem;
+}
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+main>.preview{
+    background-color: #03283a;
+    width: 100%;
+    height: 50vh;
+    border-radius: 0.8rem;
+}
+.preview{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.preview>div{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.preview>div>div{
+    width: 50px;
+    height: 50px;
+    border-radius: 0.5rem;
+    background-color: #6552e7;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main>.input{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #03283a;
+    margin: 1rem 0 ;
+    position: relative;
+    font-size: 1.5em;
+}
+.input>div{
+    position: absolute;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+}
+.input>div:nth-child(1){
+    top: 35px;
+    left: 115px;
+}
+.input>div:nth-child(2){
+    top: 110px;
+    left: 30px;
+}
+.input>div:nth-child(3){
+    top: 110px;
+    right: 30px;
+}
+.input>div:nth-child(4){
+    bottom:35px;
+    left: 115px;
+}
+.input>div:nth-child(5){
+    top:113px;
+    left: 113px;
+    padding: 1rem;
+    background-color: aqua;
+    border-radius: 50%;
+}
+.score{
+    width: 80%;
+    border: 0.5rem solid #672979;
+    border-radius:1rem ;
+    padding: 1rem 4rem;
+    background-color: #ffeed0;
+    text-align: center;
+    display: none;
+}
+.score>h1{
+    margin: 1.5rem 0;
+}
+.score>div{
+    margin: 1.5rem 0;
+    font-weight: bold;
+    font-size: x-large;
+}
+.score>input{
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #fff;
+    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.score>h3{
+    margin: 1rem 0;
+    font-weight: bold;
+    font-size: x-large;
+}
+.score>#round{
+    border-radius: 50%;
+    border:0.5rem solid #511679;
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
+    background-color: white;
+    padding: 0.22rem;
+    box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+}
+#round>div{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color:  #25b382;
+}
+.tmark{
+    width: 60px;
+    height: 35px;
+    border:0.6rem solid white;
+    border-radius: 0.5rem;
+    border-top: none;
+    border-right: none;
+    transform: rotate(312deg);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    
+}
+.xmark1{
+    width: 70px;
+    height: 0.5rem;
+    background-color: red;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    transform: rotate(46deg);
+    margin: 2rem 0;
+}
+.xmark2{
+    width: 70px;
+    height: 0.5rem;
+    background-color: red;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 43px;
+    left: 10px;
+    transform: rotate(312deg);
+}
+</style>
+    <div class="main_outer">
+        <div class="main_inner">
+            <header>
+                <input type="button" value="x">
+                <div>WordLink:<span> Connect the Letters!"</span></div>
+                <div>Level<span>1</span></div>
+            </header>
+            <main>
+                <div class="preview">
+                    <div>
+                        <div class="i"></div>
+                        <div  class="i"></div>
+                    </div>
+                    <div>
+                        <div  class="i"></div>
+                        <div  class="i"></div>
+                        <div  class="i"></div>
+                    </div>
+                    <div>
+                        <div  class="i"></div>
+                        <div  class="i"></div>
+                        <div  class="i"></div>
+                        <div  class="i"></div>
+                    </div>
+                </div>
+                <div class="input">
+                    <div onclick="b1('W')">W</div>
+                    <div onclick="b2('O')">O</div>
+                    <div onclick="b3('R')">R</div>
+                    <div onclick="b4('D')">D</div>
+                    <div></div>
+                </div>
+            </main>
+        </div>
+        <div class="score">
+            <h1>Well done!</h1>
+            <h3>LEVEl <span>X</span></h3>
+            <div id="round">
+                <div>
+                    <div class="tmark"></div>
+                    <div></div>
+                </div>
+            </div>
+            <div>Completed!</div>
+            <input type="button" value="Continue" onclick="restart()">
+        </div>
+    </div>
+    <script>
+const btn1Ref=document.querySelector("div.input > div:nth-child(1)");
+const btn2Ref=document.querySelector("div.input > div:nth-child(2)");
+const btn3Ref=document.querySelector("div.input > div:nth-child(3)");
+const btn4Ref=document.querySelector("div.input > div:nth-child(4)");
+const btn5Ref=document.querySelector("div.input > div:nth-child(5)");
+const i1Ref=document.querySelector("div.preview > div:nth-child(1) > div:nth-child(1)");
+const i2Ref=document.querySelector("div.preview > div:nth-child(1) > div:nth-child(2)");
+const i3Ref=document.querySelector("div.preview > div:nth-child(2) > div:nth-child(1)");
+const i4Ref=document.querySelector("div.preview > div:nth-child(2) > div:nth-child(2)");
+const i5Ref=document.querySelector("div.preview > div:nth-child(2) > div:nth-child(3)");
+const i6Ref=document.querySelector("div.preview > div:nth-child(3) > div:nth-child(1)");
+const i7Ref=document.querySelector("div.preview > div:nth-child(3) > div:nth-child(2)");
+const i8Ref=document.querySelector("div.preview > div:nth-child(3) > div:nth-child(3)");
+const i9Ref=document.querySelector("div.preview > div:nth-child(3) > div:nth-child(4)");
+const mainInnerRef=document.querySelector(".main_inner");
+const scoreRef=document.querySelector(".score");
+const continueRef=document.querySelector(".score>input");
+const h1Ref=document.querySelector(".score>h1");
+let l1=0;
+let l2=0;
+
+let inputString=[];
+
+const b1=(x)=>{
+    inputString+=x;
+    console.log(inputString);
+}
+const b2=(x)=>{
+    inputString+=x;
+    console.log(inputString);
+}
+const b3=(x)=>{
+    inputString+=x;
+    console.log(inputString);
+}
+const b4=(x)=>{
+    inputString+=x;
+    console.log(inputString);
+}
+btn5Ref.addEventListener("click",()=>{
+    updatePreview();
+    check();
+    setTimeout(()=>{
+        
+        if(i1Ref.innerText !== ""&&i2Ref.innerText !== ""&&i3Ref.innerText !== ""&&i4Ref.innerText !== ""&&i5Ref.innerText !== ""&&i6Ref.innerText !== ""&&i7Ref.innerText !== ""&&i8Ref.innerText !== ""&&i9Ref.innerText !== ""){
+            mainInnerRef.style.display="none"
+            scoreRef.style.display="block";
+        }
+    },5000)
+});
+
+function updatePreview(){
+    if(inputString.length<3){
+        updatePreview1();
+    }
+    if(inputString.length<4){
+        updatePreview2();
+    }
+    if(inputString.length<5){
+        updatePreview3();
+    }
+}
+
+function updatePreview1() {
+    if(inputString.length===2){
+        let firstRow1=inputString.slice(0,1);
+        i1Ref.innerText=firstRow1;
+        let firstRow2=inputString.slice(1);
+        i2Ref.innerText=firstRow2;
+        inputString=[];
+    }
+}
+function updatePreview2(){
+    if(inputString.length===3){
+        let secondRow1=inputString.slice(0,1);
+        i3Ref.innerText=secondRow1;
+        let secondRow2=inputString.slice(1,2);
+        i4Ref.innerText=secondRow2;
+        let secondRow3=inputString.slice(2);
+        i5Ref.innerText=secondRow3;
+        inputString=[];
+    }
+}
+function updatePreview3(){
+     if(inputString.length==4){
+        let thirdRow1=inputString.slice(0,1);
+        i6Ref.innerText=thirdRow1;
+        let thirdRow2=inputString.slice(1,2);
+        i7Ref.innerText=thirdRow2;
+        let thirdRow3=inputString.slice(2,3);
+        i8Ref.innerText=thirdRow3;
+        let thirdRow4=inputString.slice(3);
+        i9Ref.innerText=thirdRow4;
+        inputString=[];
+    }
+}
+
+const restart=()=>{
+    const references = [
+        i1Ref, i2Ref, i3Ref, i4Ref, i5Ref, i6Ref, i7Ref, i8Ref, i9Ref
+    ];
+    
+    for (let x = 0; x < references.length; x++) {
+        references[x].innerText = "";
+    }
+    
+    mainInnerRef.style.display="block";
+    scoreRef.style.display="none";
+}
+
+const check = () => {
+    // Concatenate inner texts to form words
+    const word1 = i1Ref.innerText + i2Ref.innerText;
+    const word2 = i3Ref.innerText + i4Ref.innerText + i5Ref.innerText;
+    const word3 = i6Ref.innerText + i7Ref.innerText + i8Ref.innerText + i9Ref.innerText;
+
+    // Check if any word matches predefined words
+    if (!(word1 === "OR" || word2 === "ROD" || word3 === "WORD")) {
+        // Update elements for unsuccessful or incomplete state
+        h1Ref.innerText = "Unsuccessful!";
+        h1Ref.style.color = "red";
+        const roundDiv = document.querySelector("#round+div");
+        if (roundDiv) {
+            roundDiv.innerText = "Incomplete!";
+            roundDiv.style.color = "red";
+        }
+        const xmark1 = document.querySelector("#round > div > div:nth-child(1)");
+        const xmark2 = document.querySelector("#round > div > div:nth-child(2)");
+        if (xmark1 && xmark2) {
+            xmark1.setAttribute("class", "xmark1");
+            xmark2.setAttribute("class", "xmark2");
+        }
+        document.querySelector(".score>h3>span").innerText = ++l1-2;
+    } else {
+        // Update elements for successful state
+        document.querySelector(".score>h3>span").innerText = ++l1-2;
+        document.querySelector("header>div:nth-child(3)>span").innerText = ++l2-2;
+    }
+}
+</script>
+</body>
+</html>

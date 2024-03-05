@@ -1,0 +1,110 @@
+*{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main_outer{
+    display: grid;
+    place-items: center;
+    width: 600px;
+    height: 100vh;
+}
+.main_inner{
+    width: 100%;
+    height: 100%;
+    background-color: #F1FEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.score{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: gray;
+    align-self: flex-end;
+    padding: 1.5rem;
+}
+.score>div{
+    padding:0 1rem;
+}
+.score>div:nth-child(1),.score>div:nth-child(2){
+    border-right: 1px solid gray;
+}
+.score>div>span{
+    color: green;
+    font-weight: bold;
+}
+.result{
+    text-align: center;
+}
+.board{
+    width: 500px;
+    height: 50vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-top:1px solid brown ;
+    position: relative;
+}
+.left,.right{
+    width: 150px;
+    height: 150px;
+}
+.controls{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    margin: 2rem 0 0 0 ;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+.rock,.paper,.scissors{
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+.rock+div,.paper+div,.scissors+div{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+.rock{
+    background-image: url('rockS.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    mix-blend-mode: multiply;
+}
+.paper{
+    background-image: url('paperS.png');
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center;
+    mix-blend-mode: multiply;
+}
+.scissors{
+    background-image: url('scissorsS.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    mix-blend-mode: multiply;
+}
+.leftRef{
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(90deg);
+    mix-blend-mode: multiply;
+}
+.rightRef{
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(270deg);   
+    mix-blend-mode: multiply;
+}

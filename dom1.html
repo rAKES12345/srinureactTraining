@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .para{
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: red;
+            color: white;
+        }
+        .newPara{
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: rgb(235, 112, 112);
+            color: rgb(15, 10, 10);
+        }
+    </style>
+    <h2 id="heading">Hello JavaScript</h2>
+    <div class="box">one</div>
+    <div class="box">two</div>
+    <div class="box">three</div>
+    <p class="para">practice</p>
+    <script>
+        let btn=document.createElement("button");
+        btn.innerText="click me";
+        btn.style.backgroundColor="red";
+        btn.style.color="white";
+        let b=document.querySelector("body").prepend(btn);
+        let g=document.querySelector(".para");
+        g.getAttribute("class");
+        g.setAttribute("class","newPara");
+        console.log(g.classList);
+        g.classList.add("para");
+        g.classList.remove("newPara");
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style></style>
+    <div class="main_outer">
+        <input type="text">
+        <input type="button" value="check" onclick="oddEven()">
+        <div class="output"></div>
+    </div>
+    <script>
+        function oddEven(){
+        let input=document.querySelector("input[type=text]").value;
+        let number=parseInt(input);
+        if(number%2==0){
+            document.querySelector(".output").innerText="Even";
+        }else{
+            document.querySelector(".output").innerText="odd";
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+
+    </style>
+    <div class="main_outer">
+        <div class="main_inner">
+        <h2>Image carousel</h2>
+        <div class="imgContainer">
+            <img src="../carousel/p1.jpg" alt="" width="200px" height="200px">
+        </div>
+    </div>
+    </div>
+    <script>
+        let imgRef=document.querySelector("img");
+        i=1;
+        let return_setInterval=setInterval(function(){
+          imgRef.src="p"+i++ +".jpg";
+          if(i>3){
+           i=1;
+          }
+        },2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .arrow_sub{
+            position: relative;
+        }
+        .arrow_sub>div:nth-child(1){
+            width: 1rem;
+            height: 1rem;
+            rotate: 34deg;
+            border-top: 1px solid blue;
+            border-right: 1px solid blue;
+            border-left: none;
+            border-bottom: none;
+            position: absolute;
+            left: 9px;
+            top:0px;
+        }
+        .arrow_sub>div:nth-child(2){
+            width: 1.7rem;
+            height: 1px;
+            background-color: blue;
+            position: absolute;
+            top: 5.3px;
+        }
+    </style>
+    <div class="arrow_sub">
+        <div></div>
+        <div></div>
+</div>
+</body>
+</html>

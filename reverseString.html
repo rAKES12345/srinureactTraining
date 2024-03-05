@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main_outer">
+        <input type="text" name="" id="">
+        <input type="button" onclick="reverseString()" value="reverse">
+        <div class="output"></div>
+    </div>
+    <script>
+        function reverseString(){
+            let input1=document.querySelector("body > div.main_outer > input[type=text]:nth-child(1)").value;
+            let output= input1.split("").reverse().join("");
+            let outputRef=document.querySelector(".output");
+            outputRef.innerHTML=output;   
+        }
+    </script>
+</body>
+</html>

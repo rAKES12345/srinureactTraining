@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login System</title>
+    <link rel="stylesheet" href="app.css" />
+    <script defer src="index.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div id="myNav" class="overlay">
+      <span class="closebtn" onclick="close()">&times;</span>
+      <div class="overlay-content">
+      <div>Home</div>
+      <div>About</div>
+      <div>Services</div>
+      <div>Clients</div>
+      <div>Contact</div>
+      <div>Logout</div>
+    </div>
+    </div>
+    <div class="header">
+      <div class="menu-toggle" onclick="open()">&#9776</div>
+      <div>Seller</div>
+      <div>
+        <span data-toggle="modal" data-target="#modal1" id="login">Login</span>
+        <span data-toggle="modal" data-target="#modal2" id="signup">SignUp</span>
+        <span id="profile">Profile</span>
+      </div>
+    </div>
+    <div class="main_outer container-fluid">
+      <div class="main_inner container">
+        <div class="modal m" id="modal1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="success">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <div class="tick">
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div>Logged in Successfully !</div>
+                </div>
+                <div class="unsuccess">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <div class="xmark">
+                        <div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div>Invalid credentials !</div>
+                </div>
+              <div class="modal-header">
+                <span>Login</span>
+                <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div><input type="text" placeholder="User Name" id="i1" /></div>
+                <div><input type="text" placeholder="Password" id="i2" /></div>
+              </div>
+              <div class="modal-footer">
+                <input type="button" value="Login" id="b1" />
+                <input type="button" data-toggle="modal" data-target="#modal2" value="Sign Up" id="b2" />
+            </div>
+            <div id="b4" data-toggle="modal" data-target="#modal3">forget password</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="success">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <div class="tick">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+            <div>Registered  Successfully !</div>
+        </div>
+        <div class="unsuccess">
+          <button class="close" data-dismiss="modal">&times;</button>
+          <div class="xmark">
+              <div>
+                  <div></div>
+                  <div></div>
+              </div>
+          </div>
+          <div>Invalid credentials !</div>
+      </div>
+            <div class="modal-header">
+                <span>Sign Up</span>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div><input type="text" placeholder="User Name" id="i3" /></div>
+                <div><input type="text" placeholder="Password" id="i4" /></div>
+                <div><input type="text" placeholder="Confirm Password" id="i5" /></div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="Sign Up" id="b3" />
+                <div id="b4" data-toggle="modal" data-target="#modal3">forget password</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<div class="modal" id="modal3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="success">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <div class="tick">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+            <div> Password is being set Successfully !</div>
+        </div>
+        <div class="unsuccess">
+          <button class="close" data-dismiss="modal">&times;</button>
+          <div class="xmark">
+              <div>
+                  <div></div>
+                  <div></div>
+              </div>
+          </div>
+          <div>The password and confirm password do not match !</div>
+      </div>
+            <div class="modal-header">
+                <span>Forget Password</span>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div><input type="number" placeholder="OTP" id="i6" /></div>
+                <div><input type="text" placeholder="Password" id="i7" /></div>
+                <div><input type="text" placeholder="Confirm Password" id="i8" /></div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="Set Password" id="b5" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <main>
+          <h1>Admin Panel</h1>
+          <p>
+            <button>Users</button>
+            <button>History</button>
+            <button>Orders</button>
+            <button>Stock</button>
+            <button>Updates</button>
+          </p>
+        </main>
+
+      </div>
+    </div>
+  </body>
+</html>

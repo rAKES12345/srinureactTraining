@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style></style>
+    <div class="main_outer">
+        <h2>Addition of two Numbers</h2>
+        <p>
+            <label for="N1">N1:</label>
+            <input>
+        </p>
+        <p>
+            <label for="N2">N2:</label>
+            <input>
+        </p>
+        <p>
+            <input type="button" value="Sum" onclick="sum()">
+        </p>
+        <p>Output</p>
+    </div>
+    <script>
+        function sum(){
+            let a=document.querySelector("body > div.main_outer > p:nth-child(2) > input").value;
+            let b=document.querySelector("body > div.main_outer > p:nth-child(3) > input").value;
+            let sum=parseInt(a)+parseInt(b);
+            let output=document.querySelector("body > div.main_outer > p:nth-child(5)");
+            output.innerText=sum;
+            if(sum>100){
+                output.style.color="red";
+            }else if(sum>1000){
+                output.style.color="green";
+            }else{
+                output.style.color="black";
+            }
+        }
+    </script>
+</body>
+</html>

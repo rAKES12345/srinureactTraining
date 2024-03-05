@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="/Form/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="main_outer">
+        <div class="main_inner">
+              <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Login</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Register</button>
+<div class="form">
+                <!-- Modal -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+                <input type="text" placeholder="User Name" id="loginUsername">
+                <input type="password" placeholder="Password" id="loginPassword">
+                <input type="submit" value="Login" class="close" data-dismiss="modal">
+                
+        </div>
+        <div class="modal-footer">
+          <div>
+                <a btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Forget password</a>
+                <input type="button" value="Register" data-toggle="modal" data-target="#myModal2">
+                </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Register</h4>
+        </div>
+        <div class="modal-body">
+            <input type="text" placeholder="User Name" id="regUsername">
+            <input type="password" placeholder="Password" id="regPassword1">
+            <input type="password" placeholder="conform Password" id="regPassword2">
+                
+        </div>
+        <div class="modal-footer">
+          <div>
+                <input type="button" value="Register" class="close" data-dismiss="modal">
+                </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Forget Password</h4>
+        </div>
+        <div class="modal-body">
+            <input type="password" placeholder="Password" id="fpassword1">
+            <input type="password" placeholder="conform Password" id="fpassword2">
+                
+        </div>
+        <div class="modal-footer">
+          <div>
+                <input type="button" value="Set Password" data-dismiss="modal">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+            </div>
+            <div class="registerForm"></div>
+        </div>
+    </div>
+    <script src="/Form/index.js"></script>
+</body>
+</html>

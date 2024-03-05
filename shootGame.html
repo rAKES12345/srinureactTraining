@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+        .main_outer{
+            padding: 3rem 0;
+            display: grid;
+            place-content: center;
+        }
+        .board{
+            width: 700px;
+            height: 500px;
+            border: 1px solid red;
+            background-color: antiquewhite;
+            position: relative;
+        }
+        .board>div:first-child{
+            width:80px;
+            border: 1px solid red;
+            position: absolute;
+            top: 248px;
+            left: 0;
+        }
+        .board>div:last-child{
+            height: 450px;
+            border: 1px solid red;
+            position: absolute;
+            top:27px;
+            left: 600px;
+        }
+    </style>
+    <div class="main_outer">
+        <div class="board">
+        <div></div>
+        <div></div>
+        </div>
+        <div>
+            <input type="button" value="shoot" onclick="shoot()">
+        </div>
+    </div>
+    <script>
+        function shoot(){
+            let leftValue=0;
+            arrow=document.querySelector(".board>div:first-child");
+            let return_setInterval=setInterval(function(){
+                arrow.style.left=leftValue++ +"px";
+                if(leftValue>520){
+                clearInterval(return_setInterval);
+                }
+            },100);
+        }
+    </script>
+</body>
+</html>

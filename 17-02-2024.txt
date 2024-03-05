@@ -1,0 +1,218 @@
+5.callback
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+            
+      </style>
+   </head>
+<body>
+<script>
+function fn(a,b){
+    a();
+    b();
+    return function(){
+        console.log("Dhoni")
+    }
+};
+
+var returnFn=fn(function(){
+console.log("Sachin");
+},
+function(){
+console.log("Kohli");
+});
+returnFn()
+</script>
+ 
+</body>
+</html>
+===========================
+6.HOF:
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+            
+      </style>
+   </head>
+<body>
+<script>
+function fn(x,y){
+let z={name:"Sachin"};
+x(z);
+y(function(){return "Kohli"});
+return function(){
+console.log("Dhoni");
+}
+}
+
+    fn(
+    function(a){
+        console.log(a.name)
+    },
+    function(b){
+        console.log(b())
+    }
+    )()
+</script>
+ 
+</body>
+</html>
+============================
+7.Events
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+            
+      </style>
+   </head>
+<body>
+
+             <p>
+                <b>No1: </b><input id='n1'  />
+            </p>
+            <p>
+                <b>No2: </b><input id='n2'  />
+            </p>
+            <p>
+                <button onclick="fnClick()">ADD</button>
+            </p>
+            <h1 id="result"></h1>
+<script>
+function fnClick(){
+const no1=document.querySelector("#n1").value;
+const no2=document.querySelector("#n2").value;
+let sum=parseInt(no1)+parseInt(no2);
+document.querySelector("#result").innerText=sum;
+}
+</script>
+ 
+</body>
+</html>
+==========================
+8.JSON Obj:
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+            
+      </style>
+   </head>
+<body>
+<script>
+let obj={
+a:1,
+x:{y:2},
+z:function(){
+return 3;
+},
+b:[4]
+};
+console.log(obj.a);
+console.log(obj.x.y);
+console.log(obj.z());
+console.log(obj.b[0]);
+</script>
+ 
+</body>
+</html>
+=================
+Inline Css:
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+            .ground{
+                    width: 400px;
+                    height: 300px;
+                    border: 1px solid red;
+                    position: relative;
+                    }
+                .wall{
+                    border: 1px solid green;
+                    position: absolute;
+                    height: 250px;
+                    left: 350;
+                    top: 25px;
+                    }
+                .arrow{
+                    border: 1px solid blue;
+                    position: absolute;
+                    width: 100px;
+                    top: 150px;
+                    left:0px
+                    }
+      </style>
+   </head>
+<body>
+
+            <div class="ground">
+              <div class="wall"></div>
+              <div class="arrow"></div>
+            </div>
+            <button onclick="fnShoot()">Shoot</button>
+<script>
+function fnShoot(){
+const arrowRef=document.querySelector(".arrow");
+arrowRef.style.left="250";
+}
+</script>
+ 
+</body>
+</html>
+=======================
+10.External Css:
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+            .ground{
+                    width: 400px;
+                    height: 300px;
+                    border: 1px solid red;
+                    position: relative;
+                    }
+                .wall{
+                    border: 1px solid green;
+                    position: absolute;
+                    height: 250px;
+                    left: 350;
+                    top: 25px;
+                    }
+                .arrow{
+                    border: 1px solid blue;
+                    position: absolute;
+                    width: 100px;
+                    top: 150px;
+                    left:0px
+                    }
+                .left-0{
+                    left:0
+                }
+                .left-250{
+                    left:250
+                }
+                    
+      </style>
+   </head>
+<body>
+
+            <div class="ground">
+              <div class="wall"></div>
+              <div class="arrow left-0"></div>
+            </div>
+            <button onclick="fnShoot()">Shoot</button>
+<script>
+function fnShoot(){
+const arrowRef=document.querySelector(".arrow");
+arrowRef.classList.add("left-250");
+}
+
+</script>
+ 
+</body>
+</html> 

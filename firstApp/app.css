@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    background-color: #023b6d;
+    color: white;
+    font-size:1.5em;
+    height: 6rem;
+    /* line-height: 4rem; */
+}
+header>div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header>div:nth-child(2)>span:nth-child(1){
+    align-self: center;
+}
+header>div:nth-child(2)>span>input{
+border: none;
+outline: none;
+align-self: center;
+}

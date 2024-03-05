@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login System</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <style>
+        * {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(128, 128, 248);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+}
+.header > div:nth-child(1) {
+  font-size: 1.2em;
+}
+.header > div:nth-child(2) {
+  font-size: 1.5em;
+}
+.header > div:nth-child(3) > span {
+  margin: 0 1rem;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.modal {
+  max-width: 500px;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+}
+.modal-dialog {
+  width: auto !important;
+}
+.modal-header,
+.modal-footer {
+  border: none !important;
+}
+.modal-header {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bolder;
+}
+.modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+@media screen and (max-width=440px) {
+  .modal-body > div > input {
+    max-width: 90px !important;
+  }
+  .modal-footer > input {
+    font-size: 8px !important;
+  }
+}
+
+.modal-body > div > input {
+  all: unset;
+  padding: 0 0 0.7rem 0;
+  border-bottom: 1px solid red;
+}
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0 1rem;
+}
+.modal-footer > input {
+  all: unset;
+  background-color: blue;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+}
+#b4 {
+  text-align: center;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+.success {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding: 2rem 0;
+}
+.success > button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+ .tick {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 0.4rem solid green;
+  position: relative;
+  margin: 0 0 2rem 0;
+}
+.tick > div:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.tick> div:nth-child(1) > div:nth-child(1) {
+  width: 5.5rem;
+  height: 2.7rem;
+  border: 0.4rem solid green;
+  border-top: none;
+  border-right: none;
+  transform: rotate(315deg);
+}
+.unsuccess{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 2rem 0;
+}
+.unsuccess > button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.xmark{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 0.4rem solid green;
+    position: relative;
+    margin: 0 0 2rem 0;
+}
+.xmark>div:nth-child(1) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .xmark>div:nth-child(1) > div:nth-child(1) {
+    width: 6.5rem;
+    height: 0.1rem;
+    border: 0.4rem solid green;
+    position: relative;
+    top: 5px;
+    left: 0px;
+    transform: rotate(135deg);
+  }
+  .xmark>div:nth-child(1) > div:nth-child(2) {
+    width: 6.5rem;
+    height: 0.1rem;
+    border: 0.4rem solid green;
+    position: relative;
+    top: -3px;
+    left: 0px;
+    transform: rotate(225deg);
+  }
+  #profile{
+    display: none;
+    cursor: pointer;
+  }
+    </style>
+    <div class="header">
+      <div>=</div>
+      <div>Seller</div>
+      <div>
+        <span data-toggle="modal" data-target="#modal1" id="login">Login</span>
+        <span data-toggle="modal" data-target="#modal2" id="signup">SignUp</span>
+        <span id="profile">Profile</span>
+      </div>
+    </div>
+    <div class="main_outer container-fluid">
+      <div class="main_inner container">
+        <div class="modal m" id="modal1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="success">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <div class="tick">
+                        <div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div>Logged in Successfully !</div>
+                </div>
+                <div class="unsuccess">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <div class="xmark">
+                        <div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div>Invalid credentials !</div>
+                </div>
+              <div class="modal-header">
+                <span>Login</span>
+                <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div><input type="text" placeholder="User Name" id="i1" /></div>
+                <div><input type="text" placeholder="Password" id="i2" /></div>
+              </div>
+              <div class="modal-footer">
+                <input type="button" value="Login" id="b1" />
+                <input type="button" data-toggle="modal" data-target="#modal2" value="Sign Up" id="b2" />
+            </div>
+            <div id="b4" data-toggle="modal" data-target="#modal3">forget password</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="success">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <div class="tick">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+            <div>Registered  Successfully !</div>
+        </div>
+        <div class="unsuccess">
+          <button class="close" data-dismiss="modal">&times;</button>
+          <div class="xmark">
+              <div>
+                  <div></div>
+                  <div></div>
+              </div>
+          </div>
+          <div>Invalid credentials !</div>
+      </div>
+            <div class="modal-header">
+                <span>Sign Up</span>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div><input type="text" placeholder="User Name" id="i3" /></div>
+                <div><input type="text" placeholder="Password" id="i4" /></div>
+                <div><input type="text" placeholder="Confirm Password" id="i5" /></div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="Sign Up" id="b3" />
+                <div id="b4" data-toggle="modal" data-target="#modal3">forget password</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<div class="modal" id="modal3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="success">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <div class="tick">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+            <div> Password is being set Successfully !</div>
+        </div>
+        <div class="unsuccess">
+          <button class="close" data-dismiss="modal">&times;</button>
+          <div class="xmark">
+              <div>
+                  <div></div>
+                  <div></div>
+              </div>
+          </div>
+          <div>The password and confirm password do not match !</div>
+      </div>
+            <div class="modal-header">
+                <span>Forget Password</span>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div><input type="number" placeholder="OTP" id="i6" /></div>
+                <div><input type="text" placeholder="Password" id="i7" /></div>
+                <div><input type="text" placeholder="Confirm Password" id="i8" /></div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="Set Password" id="b5" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <script>
+        const ref = {
+  i1: document.querySelector("#i1"),
+  i2: document.querySelector("#i2"),
+  i3: document.querySelector("#i3"),
+  i4: document.querySelector("#i4"),
+  i5: document.querySelector("#i5"),
+  i6: document.querySelector("#i6"),
+  i7: document.querySelector("#i7"),
+  i8: document.querySelector("#i8"),
+  b1: document.querySelector("#b1"),
+  b2: document.querySelector("#b2"),
+  b3: document.querySelector("#b3"),
+  b4:document.querySelector("#b4"),
+  b5:document.querySelector("#b5"),
+  login:document.querySelector("#login"),
+  signup:document.querySelector("#signup"),
+  profile:document.querySelector("#profile"),
+  modal2:document.querySelector("#modal2"),
+  modal3:document.querySelector("#modal3"),
+  modal_content:document.querySelector(".modal-content"),
+  success1:document.querySelector("#modal1 .success"),
+  success2:document.querySelector("#modal2 .success"),
+  success3:document.querySelector("#modal3 .success"),
+  unsuccess1:document.querySelector("#modal1 .unsuccess"),
+  unsuccess2:document.querySelector("#modal2 .unsuccess"),
+  unsuccess3:document.querySelector("#modal3 .unsuccess"),
+  modal_header1:document.querySelector(".modal-header"),
+  modal_body1:document.querySelector(".modal-body"),
+  modal_footer1:document.querySelector(".modal-footer"),
+  modal_header2:document.querySelector("#modal2 .modal-header"),
+  modal_body2:document.querySelector("#modal2 .modal-body"),
+  modal_footer2:document.querySelector("#modal2 .modal-footer"),
+  modal_header3:document.querySelector("#modal3 .modal-header"),
+  modal_body3:document.querySelector("#modal3 .modal-body"),
+  modal_footer3:document.querySelector("#modal3 .modal-footer"),
+  forget:document.querySelector("#b4"),
+  closeUnsuccess1:document.querySelector("#modal1  div.unsuccess > button"),
+  closeUnsuccess2:document.querySelector("#modal2  div.unsuccess > button"),
+  closeUnsuccess3:document.querySelector("#modal3  div.unsuccess > button"),
+};
+
+const values = {
+  uName: "",
+  password: "",
+  confirm_password:"",
+  otp:111,
+};
+
+const successMsg=()=>{
+    ref.success1.style.display="flex";
+    ref.success2.style.display="flex";
+    ref.success3.style.display="flex";
+    ref.modal_header1.style.display="none";
+    ref.modal_body1.style.display="none";
+    ref.modal_footer1.style.display="none";
+    ref.modal_header2.style.display="none";
+    ref.modal_body2.style.display="none";
+    ref.modal_footer2.style.display="none";
+    ref.modal_header3.style.display="none";
+    ref.modal_body3.style.display="none";
+    ref.modal_footer3.style.display="none";
+    ref.login.style.display="none";
+    ref.signup.style.display="none";
+    ref.profile.style.display="inline-block";
+    console.log("Success");
+}
+
+const unSuccessMsg=()=>{
+    ref.unsuccess1.style.display="flex";
+    ref.unsuccess2.style.display="flex";
+    ref.unsuccess3.style.display="flex";
+    ref.modal_header1.style.display="none";
+    ref.modal_body1.style.display="none";
+    ref.modal_footer1.style.display="none";
+    ref.modal_header2.style.display="none";
+    ref.modal_body2.style.display="none";
+    ref.modal_footer2.style.display="none";
+    ref.modal_header3.style.display="none";
+    ref.modal_body3.style.display="none";
+    ref.modal_footer3.style.display="none";
+    ref.b4.style.display="none";   
+    console.log("Un-Success");
+}
+
+ref.login.addEventListener("click",()=>{
+    closeUnsuccess();
+});
+
+ref.signup.addEventListener("click",()=>{
+    closeUnsuccess();
+})
+
+ref.b4.addEventListener("click",()=>{
+    closeUnsuccess();
+})
+
+const loginFn=()=>{
+    closeUnsuccess();
+    if(values.uName===ref.i1.value && values.password===ref.i2.value){
+        successMsg();
+    }else{
+        unSuccessMsg();
+    }
+    console.log("Login");
+    ref.i1.value = "";
+    ref.i2.value = "";
+    
+};
+
+const closeUnsuccess=()=>{
+    ref.success1.style.display="none";
+    ref.success2.style.display="none";
+    ref.success3.style.display="none";
+    ref.unsuccess1.style.display="none";
+    ref.unsuccess2.style.display="none";
+    ref.unsuccess3.style.display="none";
+    ref.modal_header1.style.display="block";
+    ref.modal_body1.style.display="flex";
+    ref.modal_footer1.style.display="flex";
+    ref.modal_header2.style.display="block";
+    ref.modal_body2.style.display="flex";
+    ref.modal_footer2.style.display="flex";
+    ref.modal_header3.style.display="block";
+    ref.modal_body3.style.display="flex";
+    ref.modal_footer3.style.display="flex";
+    ref.b4.style.display="block";
+}
+
+ref.closeUnsuccess1.addEventListener("click",()=>{
+    closeUnsuccess();
+})
+ref.closeUnsuccess2.addEventListener("click",()=>{
+    closeUnsuccess();
+})
+ref.closeUnsuccess3.addEventListener("click",()=>{
+    closeUnsuccess();
+})
+
+const signupFn=()=>{
+    closeUnsuccess();
+    values.uName = ref.i3.value;
+    if(ref.i4.value===ref.i5.value){
+        values.password = ref.i4.value;
+        values.confirm_password = ref.i5.value;
+        successMsg();
+        ref.login.style.display="inline-block";
+        ref.profile.style.display="none";
+        
+    }else{
+        unSuccessMsg();
+        ref.login.style.display="inline-block";
+        ref.unsuccess2.style.display="inline-block";
+        ref.profile.style.display="none";
+        
+    }
+    console.log("register");
+    ref.i3.value = "";
+    ref.i4.value = "";
+    ref.i5.value = "";
+};
+
+
+
+const forgetPasswordFn = () => {
+    closeUnsuccess();
+    if(values.otp==i6.value && i7.value===i8.value){
+        values.password = ref.i7.value; 
+        ref.success3.style.display="flex";
+        ref.modal_header3.style.display="none";
+        ref.modal_body3.style.display="none";
+        ref.modal_footer3.style.display="none";
+        console.log("password set successfully");
+    }else{
+        unSuccessMsg();
+        console.log("password not setted!");
+    }
+    console.log("Forget password !");
+};
+
+ref.b1.addEventListener("click", loginFn);
+ref.b3.addEventListener("click", signupFn);
+ref.b5.addEventListener("click", forgetPasswordFn);
+
+
+    </script>
+  </body>
+</html>
