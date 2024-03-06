@@ -182,10 +182,10 @@ ref.b1.addEventListener("click", loginFn);
 ref.b3.addEventListener("click", signupFn);
 ref.b5.addEventListener("click", forgetPasswordFn);
 
-const open=()=>{
-    document.querySelector(".overlay-content").style.width="30%";
-}
+document.getElementById("openbtn").addEventListener("click",open=()=>{
+    document.querySelector(".overlay").classList.add("responsive");
+});
+document.getElementById("closebtn").addEventListener("click",close=()=>{
+    document.querySelector(".overlay").style.width="0%";
 
-const close=()=>{
-    document.querySelector(".overlay-content").style.width="0%";
-}
+});
